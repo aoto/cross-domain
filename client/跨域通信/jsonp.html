@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>jsonp跨域通信</title>
+	<script type="text/javascript" src="http://cdn.staticfile.org/jquery/1.11.1/jquery.js"></script>
+</head>
+<body>
+<script type="text/javascript">
+
+	$(function(){
+		$.ajax({
+			url: 'http://bbb.com:8888/crossdomain/jsonp.php',
+			dataType: 'jsonp',
+			jsonp : 'callback',
+			data: {name: 'ysj'}
+		}).done(function(result){
+			alert(result)
+		})
+	})
+
+
+	// var temp = document.createElement('script');
+	// temp.src = 'http://bbb.com:8888/crossdomain/jsonp.php?callback=jsonpCallback&name=ysj';
+	// document.body.appendChild(temp)
+	// temp.parentNode.removeChild(temp);
+
+	// function jsonpCallback(result) {
+	// 	alert(result)
+	// }
+
+</script>
+</body>
+</html>

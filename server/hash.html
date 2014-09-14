@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+response
+<script type="text/javascript">
+	window.onload = function() {
+		if(window.onhashchange) {
+			window.onhashchange = function() {
+				window.parent.location  = 'http://aaa.com:8080/%E8%B7%A8%E5%9F%9F%E9%80%9A%E4%BF%A1/hash.html#' + '{code:200}'
+			}
+		} else {
+			window.setInterval(function(){
+				// check hash change
+			}, 200)
+		}
+		
+	}
+</script>
+</body>
+</html>

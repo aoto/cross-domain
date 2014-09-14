@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<form method="post" action="http://bbb.bbb.com:8888/crossdomain/redirect.php" target="_iframe">
+	<input type="hidden" name="redirect" id="redirect"> 
+	<input type="file" name="Filedata">
+	<button type="submit">submit</button>
+</form>
+<iframe id="_iframe" name="_iframe"></iframe>
+
+<script type="text/javascript">
+
+	document.forms[0].onsubmit = function() {
+		document.getElementById('redirect').value = window.location.href.replace(/\/[^\/]*$/,'/result.html?%s');
+
+		var iframe = document.getElementById('_iframe')
+		iframe.onload = function(){
+			console.log(iframe.contentDocument 
+				? iframe.contentDocument.body.innerHTML 
+				: iframe.document.body.innerHTML)
+		}
+	}
+
+</script>
+</body>
+</html>

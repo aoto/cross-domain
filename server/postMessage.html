@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script type="text/javascript" src="http://cdn.staticfile.org/jquery/1.11.1/jquery.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$(window).on('message', function(e){
+			var e = e.originalEvent;
+			var options = e.data;
+			var truedata = options.data;
+			var formdata = new FormData()
+			for(var prop in truedata) {
+				formdata.append(prop,truedata[prop]);
+			}	
+			options.data = formdata;
+			$.ajax(options).always(function(result){
+				e.source.postMessage(result.responseText, e.origin)
+			})
+		})
+	})
+</script>
+</body>
+</html>

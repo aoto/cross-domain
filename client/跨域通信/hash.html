@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>hash通信</title>
+</head>
+<body>
+<iframe src="http://bbb.com:8888/crossdomain/hash.html"></iframe>
+<script type="text/javascript">
+window.onload = function() {
+	window.frames[0].location = 'http://bbb.com:8888/crossdomain/hash.html#{name:"ysj"}' ;
+	
+	if(window.onhashchange) {
+		window.onhashchange = function() {
+			alert(location.hash) //response
+		}
+	} else {
+		window.setInterval(function(){
+			// check hash change
+		}, 200)
+	}
+	
+}
+</script>
+</body>
+</html>

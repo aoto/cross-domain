@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<form method="post" action="http://bbb.bbb.com:8888/crossdomain/cors.php">
+	<input type="file" name="Filedata">
+	<button type="submit">submit</button>
+</form>
+
+<script type="text/javascript">
+
+	document.forms[0].onsubmit = function() {
+		var xhr = new XMLHttpRequest();
+		var data = new FormData(document.forms[0]);
+		xhr.open('POST' , this.action)
+		xhr.onload = function(){
+			console.log(xhr.responseText)
+		}
+		
+		xhr.send(data)
+		return false
+	}
+
+</script>
+</body>
+</html>

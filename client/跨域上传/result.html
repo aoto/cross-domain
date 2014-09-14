@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>重定向的结果页面</title>
+</head>
+<body>
+<script type="text/javascript">
+	document.body.innerText=document.body.textContent=decodeURIComponent(window.location.search.slice(1));
+</script>
+</body>
+</html>
